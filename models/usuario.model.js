@@ -45,7 +45,7 @@ const usuarioSchema = Schema({
         default: Date.now
     },
 
-    active: {
+    activo: {
         type: Boolean,
         required: true,
         default: true

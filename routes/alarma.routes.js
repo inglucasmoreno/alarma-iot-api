@@ -6,15 +6,18 @@ const {
     inicializarAlarma,
     actualizarAlarma,
     eliminarAlarma
-} = require('../controllers/alarma.controller');
+} = require('../controllers/alarma.controllers');
 
 const router = new Router();
 
 router.get('/', getAlarma);
 router.post('/', inicializarAlarma);
-router.put('/', check('estado', 'El estado de la alarma es obligatorio').not().isEmpty(), 
-                validarCampos, 
-                actualizarAlarma
+router.put('/', 
+            [ 
+                check('estado', 'El estado de la alarma es obligatorio').not().isEmpty(), 
+                validarCampos
+            ], 
+            actualizarAlarma
 );
 router.delete('/', eliminarAlarma);
 
