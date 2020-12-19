@@ -12,7 +12,6 @@ const router = Router();
 router.get('/', validarJWT ,renewtoken);
 router.post('/',
     [   
-        validarJWT,
         check('dni', 'El DNI es obligatorio').not().isEmpty(),
         check('password', 'El password es obligatorio').not().isEmpty(),
         validarCampos,        

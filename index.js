@@ -21,6 +21,7 @@ app.use(express.static('public'));
 app.get('/', (req, res) => res.json({welcome: 'Bienvenidos a Equinoccio Technology'}));
 app.use('/api/alarma', require('./routes/alarma.routes'));
 app.use('/api/auth', require('./routes/auth.routes'));
+app.use('/api/usuarios', require('./routes/usuarios.routes'));
 
 // [Ejecucion de servidor]
 server.listen(server_port, () => {

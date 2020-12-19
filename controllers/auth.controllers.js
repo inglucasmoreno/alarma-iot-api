@@ -12,8 +12,8 @@ const login = async (req, res) => {
         const {dni, password} = req.body;
 
         // Se verifica si el usuario existe
-        const usuarioDB = await Usuario.findById(id);
-        if(!usuarioBD) return error(res, 400, 'Datos incorrectos');
+        const usuarioDB = await Usuario.findOne({dni});
+        if(!usuarioDB) return error(res, 400, 'Datos incorrectos');
         
         // Se verifica password
         const validPassword = bcryptjs.compareSync(password, usuarioDB.password);
@@ -25,7 +25,7 @@ const login = async (req, res) => {
         // Se genera el token
         const token = await generarJWT(usuarioDB._id);
 
-        success(res, token);
+        success(res, { token });
 
     }catch(err){
         console.log(chalk.red(err));
