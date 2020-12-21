@@ -23,6 +23,10 @@ app.use('/api/alarma', require('./routes/alarma.routes'));
 app.use('/api/auth', require('./routes/auth.routes'));
 app.use('/api/usuarios', require('./routes/usuarios.routes'));
 
+// [MQTT]
+const mqttConnect = require('./mqtt/mqttConnect');
+mqttConnect(server);
+
 // [Ejecucion de servidor]
 server.listen(server_port, () => {
     console.log(chalk.blue('[Desarrollador]') + ' - Equinoccio Technology');    

@@ -32,7 +32,7 @@ const inicializarAlarma = async (req, res) => {
 
 // Actualizar alarma
 const actualizarAlarma = async (req, res) => {
-    try{             
+    try{   
         const { estado } = req.body;
         const alarmaBD =  await Alarma.find();
         if(!alarmaBD[0]) return error(res, 404, 'La alarma no existe'); 
