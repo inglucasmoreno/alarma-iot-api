@@ -9,7 +9,7 @@ const dbConnection = async () => {
             useCreateIndex: true,
             useFindAndModify: false              
         });
-        console.log(chalk.blue('[MongoDB]') + ' - Conexion a base de datos correcta');
+        console.log(chalk.blue('[MongoDB]') + ' - Conexion a base de datos -> ' + chalk.green('[Correcta]'));
     }catch(err){
         console.log(err);
         throw new Error('Error al conectar con la base de datos');    
